@@ -5,8 +5,7 @@
 ```
 minikube start -p native --memory=3g
 kubectl apply -f kubernetes/native-deployment.yaml
-minikube service quotes-app -p native
-minikube service list -p native
+HOST=$(minikube service quotes-app --url -p native)
 // do the load
 minikube stop -p native
 ```
@@ -16,7 +15,7 @@ minikube stop -p native
 ```
 minikube start -p jit --memory=3g
 kubectl apply -f kubernetes/jit-deployment.yaml
-minikube service quotes-app -p jit
+HOST=$(minikube service quotes-app --url -p jit)
 // do the load
 minikube stop -p jit
 ```
@@ -24,8 +23,8 @@ minikube stop -p jit
 #### Some Ideas for Benchmarking
 ```
 // do the load
-hey -n 3000 http://host:port/quotes/random
-wrk -t16 -c400 -d30s http://host:port/quotes/random
+hey -n 3000 ${HOST}/quotes/random
+wrk -t16 -c400 -d30s ${HOST}/quotes/random
 ```
 
 ### optional: ingress setup
