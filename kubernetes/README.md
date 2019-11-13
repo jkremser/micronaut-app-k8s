@@ -1,6 +1,6 @@
-== Deployment to Kubernetes
+## Deployment to Kubernetes
 
-==== benchmark the "native setup"
+#### benchmark the "native setup"
 
 ```
 minikube start -p native --memory=3g
@@ -11,7 +11,7 @@ minikube service list -p native
 minikube stop -p native
 ```
 
-==== benchmark the "jit setup"
+#### benchmark the "jit setup"
 
 ```
 minikube start -p jit --memory=3g
@@ -21,14 +21,14 @@ minikube service quotes-app -p jit
 minikube stop -p jit
 ```
 
-==== Some Ideas for Benchmarking
+#### Some Ideas for Benchmarking
 ```
 // do the load
 hey -n 3000 http://host:port/quotes/random
 wrk -t16 -c400 -d30s http://host:port/quotes/random
 ```
 
-=== optional: ingress setup
+### optional: ingress setup
 
 ```
 minikube addons enable ingress
