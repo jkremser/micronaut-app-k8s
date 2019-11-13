@@ -1,0 +1,9 @@
+FROM jkremser/mini-jre:8.1
+
+ENV JAVA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:MaxRAMFraction=2 -XshowSettings:vm"
+
+COPY  /build/libs/micronaut-app-0.1-all.jar /quotes-app.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["/usr/bin/java", "-jar", "/quotes-app.jar"]
