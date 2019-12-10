@@ -1,3 +1,13 @@
+endpoints:
+  prometheus:
+    sensitive: false
 micronaut:
+    metrics:
+        enabled: true
+        export:
+            prometheus:
+                enabled: true
+                step: PT5S
+                descriptions: true
     application:
         name: quotes

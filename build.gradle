@@ -35,6 +35,10 @@ dependencies {
     annotationProcessor "io.micronaut:micronaut-graal" // <1>
     //end::graal[]
 
+    compile "io.micronaut.configuration:micronaut-micrometer-core"
+    compile 'io.micronaut.configuration:micronaut-micrometer-registry-prometheus'
+    compile "io.micronaut:micronaut-management"
+
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
     testAnnotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     testAnnotationProcessor "io.micronaut:micronaut-inject-java"
