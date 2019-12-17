@@ -2,6 +2,7 @@ plugins {
     id "com.github.johnrengelman.shadow" version "5.0.0"
     id "application"
     id "net.ltgt.apt-eclipse" version "0.21"
+    id "com.palantir.graal" version "0.6.0-34-g170da3c"
 }
 
 version "0.1"
@@ -54,6 +55,13 @@ test.classpath += configurations.developmentOnly
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
 
 mainClassName = "example.micronaut.Application"
+
+
+graal {
+            mainClass 'example.micronaut.Application'
+            outputName 'hello-world'
+}
+
 // use JUnit 5 platform
 test {
     useJUnitPlatform()

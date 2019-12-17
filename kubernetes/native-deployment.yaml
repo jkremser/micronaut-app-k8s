@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: quotes
 spec:
-  replicas: 10
+  replicas: 16
   selector:
     matchLabels:
       app.kubernetes.io/name: quotes-app
@@ -21,9 +21,9 @@ spec:
           value: "100"
         resources:
           requests:
-            memory: "128Mi"
+            memory: "125Mi"
           limits:
-            memory: "128Mi"
+            memory: "125Mi"
 ---
 apiVersion: v1
 kind: Service

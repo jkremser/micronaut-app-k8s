@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: quotes
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app.kubernetes.io/name: quotes-app
@@ -18,12 +18,12 @@ spec:
         imagePullPolicy: Always
         env:
         - name: WAIT
-          value: "100"
+          value: "20"
         resources:
           requests:
-            memory: "640Mi"
+            memory: "669Mi"
           limits:
-            memory: "640Mi"
+            memory: "669Mi"
 ---
 apiVersion: v1
 kind: Service
